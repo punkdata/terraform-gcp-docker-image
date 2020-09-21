@@ -9,5 +9,9 @@ RUN wget https://releases.hashicorp.com/terraform/0.13.3/terraform_0.13.3_linux_
 RUN wget -c https://dl.google.com/dl/cloudsdk/channels/rapid/google-cloud-sdk.tar.gz -O gcp-cli.tar.gz
 RUN tar -xzvf gcp-cli.tar.gz && mv google-cloud-sdk/ /usr/local/bin && ./usr/local/bin/google-cloud-sdk/install.sh  --quiet \
 	&& rm -rf gcp-cli.tar.gz
+RUN cd ~ && wget https://github.com/digitalocean/doctl/releases/download/v1.46.0/doctl-1.46.0-linux-amd64.tar.gz \
+	&& tar xf ~/doctl-1.46.0-linux-amd64.tar.gz \
+	&& sudo mv ~/doctl /usr/local/bin
+
 ENV PATH="/usr/local/bin/google-cloud-sdk/bin:$PATH"
 WORKDIR /root/
