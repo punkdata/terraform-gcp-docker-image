@@ -12,6 +12,7 @@ RUN tar -xzvf gcp-cli.tar.gz && mv google-cloud-sdk/ /usr/local/bin && ./usr/loc
 RUN cd ~ && wget https://github.com/digitalocean/doctl/releases/download/v1.64.0/doctl-1.64.0-linux-amd64.tar.gz \
 	&& tar xf ~/doctl-1.64.0-linux-amd64.tar.gz \
 	&& sudo mv ~/doctl /usr/local/bin
+RUN echo 'PATH="/usr/local/bin/google-cloud-sdk/bin:$PATH"' >> /etc/profile
 
 ENV PATH="/usr/local/bin/google-cloud-sdk/bin:$PATH"
 WORKDIR /root/
